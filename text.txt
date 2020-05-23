@@ -1,1 +1,47 @@
-this is my first text file 
+In our every day life as a businessman  goes through the constant dilemma of setting a budget such that he gets a potential set of customers . Each customer has a budget he will your appliance at your declared price if and only if the price is less than or equal to the customer’s budget . You want to fix a price such that the revenue earned is maximized . We can use a simple C program to formulate a simple business plan .It will use basic sort functions , we will provide variable for different cases .Suppose we have four potential customers and their budgets are 20,30,53,14. In this case the maximum revenue they get is 60 .
+
+Here is a C  program depicting the following::
+#include <stdio.h>
+
+int main(void) {
+    int n,i,k,j; 
+    printf("enter theno of people you want to consider in the  budget\n ");
+    scanf("%d",&n);
+    long long int a[n];
+    printf("enter the values of budget of the customer::\n");
+    for(i=0;i<n;i++)
+    {
+        scanf("%lld",&a[i]);
+        printf("%lld\n",a[i]);
+    }
+   for(i=0;i<n-1;i++)
+    {
+        for(j=0;j<n-i-1;j++)
+        {   int t;
+            if(a[j]>a[j+1])
+                {    t=a[j];
+                    a[j]=a[j+1];
+                     a[j+1]=t;
+                }
+        }
+    }
+    for(k=0;k<n;k++)
+    {
+        a[k]=a[k]*(n-k);
+    }
+     for(i=0;i<n-1;i++)
+    {
+        for(j=0;j<n-i-1;j++)
+        {   int t;
+            if(a[j]>a[j+1])
+                {    t=a[j];
+                    a[j]=a[j+1];
+                     a[j+1]=t;
+                }
+        }
+    }
+        printf("the maximum revenue is ::%lld \n",a[n-1]);
+       
+    return 0;
+}
+
